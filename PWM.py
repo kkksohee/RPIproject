@@ -1,17 +1,17 @@
-import RPI.GPIO as GPIO
+import RPi.GPIO as GPIO
 
 import time
 
-GPIO.setwarmimgs(False)
-GPIO.setmode(GPIE.BOARD)
+GPIO.setwarnings(False)
+GPIO.setmode(GPIO.BOARD)
 
 LED=10
 
 def main():
-    GPIO.setup(LED,GPRO.OUT)
+    GPIO.setup(LED,GPIO.OUT)
 
     PWM_LED=GPIO.PWM(LED,50)
-    PwM_LED.start(0)
+    PWM_LED.start(0)
 
     while 1:
         Duty=input()
