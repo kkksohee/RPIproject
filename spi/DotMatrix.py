@@ -23,14 +23,65 @@ def demo(n, block_orientation, rotate, inreverse):
     print("Created device")
 
     # start demo
+    msg = "0123456789"
+    print(msg)
+    show_message(device, msg, fill="white", font=proportional(CP437_FONT))
+    time.sleep(1)
+
+    show_message(device, msg, fill="white", font=proportional(LCD_FONT), scroll_delay=0)
+    time.sleep(1)
+
+    show_message(device, msg, fill="white", font=proportional(LCD_FONT), scroll_delay=0.1)
+
     #words= ['0','1','2','3','4','5','6','7','8','9']
     words= ['O','X']
     virtual = viewport(device, width=device.width, height=len(words) * 8)
     with canvas(virtual) as draw:
         for i, word in enumerate(words):
             text(draw, (0, i * 8), word, fill="white", font=proportional(CP437_FONT))
-            time.sleep(2)
+            time.sleep(0.1)
 
+    for i in range(virtual.height - device.height):
+        virtual.set_position((0, i))
+        time.sleep(0.1)
+
+    show_message(device, msg, fill="white")
+
+    time.sleep(0.5)
+
+    print('Canvas')
+    for i in words:
+        print(i, type(i))
+        with canvas(device) as draw:
+            #text(draw, (0, 0), "A", fill="white")
+            text(draw, (0, 0), i, fill="white")
+            
+        time.sleep(0.1)
+            
+        for _ in range(5):
+            for intensity in range(16):
+                device.contrast(intensity * 16)
+                time.sleep(0.5)
+
+    device.contrast(0x80)
+    time.sleep(1)
+
+    show_message(device, msg, fill="white", font=SINCLAIR_FONT)
+
+    time.sleep(1)
+    show_message(device, msg, fill="white", font=proportional(SINCLAIR_FONT))
+
+    time.sleep(1)
+    show_message(device, msg, fill="white", font=proportional(TINY_FONT))
+
+    time.sleep(1)
+    show_message(device, msg)
+
+    time.sleep(1)
+    for x in range(256):
+        with canvas(device) as draw:
+            text(draw, (0, 0), chr(x), fill="white")
+            time.sleep(0.1)
 
 
 if __name__ == "__main__":

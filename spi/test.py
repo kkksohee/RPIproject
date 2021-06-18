@@ -23,14 +23,31 @@ def demo(n, block_orientation, rotate, inreverse):
     print("Created device")
 
     # start demo
+
     #words= ['0','1','2','3','4','5','6','7','8','9']
     words= ['O','X']
     virtual = viewport(device, width=device.width, height=len(words) * 8)
-    with canvas(virtual) as draw:
-        for i, word in enumerate(words):
-            text(draw, (0, i * 8), word, fill="white", font=proportional(CP437_FONT))
-            time.sleep(2)
 
+    #with canvas(virtual) as draw:
+    #    for i, word in enumerate(words):
+    #        text(draw, (0, i * 8), word, fill="white", font=proportional(CP437_FONT))
+    #        time.sleep(0.1)
+
+
+    for i in words:
+        print(i, type(i))
+        with canvas(device) as draw:
+            #text(draw, (0, 0), "A", fill="white")
+            text(draw, (0, 0), i, fill="white")
+            
+        time.sleep(0.1)
+       
+        for _ in range(5):
+            for intensity in range(16):
+                device.contrast(intensity * 16)
+                time.sleep(0.5)
+
+#    device.contrast(0x80)
 
 
 if __name__ == "__main__":
