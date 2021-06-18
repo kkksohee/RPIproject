@@ -22,6 +22,8 @@ def main():
       for val in Duty_ratio :
         PWM_led.ChangeDutyCycle(val)
         time.sleep(0.5)
+    else :
+      GPIO.output(LED, GPIO.LOW)
 
 if __name__=="__main__":
   main()
