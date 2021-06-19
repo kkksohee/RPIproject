@@ -13,7 +13,7 @@ GPIO.setmode(GPIO.BOARD)
 
 def main():
   GPIO.setup([Switch1, Switch2], GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
-  GPIO.setup(led_r, GPIO.OUT, initial=GPIO.LOW)
+  GPIO.setup([led_g, led_r,led_y], GPIO.OUT, initial=GPIO.LOW)
   
   Duty_ratio=[1,10,30,50,80,100]
   
