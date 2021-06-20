@@ -15,9 +15,7 @@ from luma.core.legacy import text, show_message
 from luma.core.legacy.font import proportional, CP437_FONT, TINY_FONT, SINCLAIR_FONT, LCD_FONT
 
 
- serial = spi(port=0, device=0, gpio=noop())
- device = max7219(serial, cascaded=n or 1, block_orientation=block_orientation,
-                     rotate=rotate or 0, blocks_arranged_in_reverse_order=inreverse)
+ 
 
 def rotate(l):
     return l[-1:] + l[:-1]
