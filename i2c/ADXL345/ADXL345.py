@@ -42,21 +42,20 @@ def main():
     init_ADXL345()
     mylcd=LCD.lcd()
 
-    while 1:
-        a=input()
-        if a=='1':
-            mylcd.lcd_display_string("PRi I2C test",1)
-            sleep(2)
-            mylcd.lcd_clear()
+    a=input()
+    if a=='1':
+        mylcd.lcd_display_string("PRi I2C test",1)
+        sleep(2)
+        mylcd.lcd_clear()
 
-        elif a=='2':
-            x_acc = measure_acc(x_adr)
-            y_acc = measure_acc(y_adr)
-            z_acc = measure_acc(z_adr)
+    elif a=='2':
+        x_acc = measure_acc(x_adr)
+        y_acc = measure_acc(y_adr)
+        z_acc = measure_acc(z_adr)
 
-            print ('X = %2.2f' % x_acc, '[g], Y = %2.2f' % y_acc, '[g], Z = %2.2f' % z_acc, '[g]')
+        print ('X = %2.2f' % x_acc, '[g], Y = %2.2f' % y_acc, '[g], Z = %2.2f' % z_acc, '[g]')
 
-            sleep(1)
+        sleep(1)
         
     else:
         print('error')
