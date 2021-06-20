@@ -5,7 +5,7 @@
 
 import time
 
-from luma.led_matrix.device import apa102
+from luma.led_matrix.device import max7219
 from luma.core.render import canvas
 
 device = max7219(width=8, height=1)
