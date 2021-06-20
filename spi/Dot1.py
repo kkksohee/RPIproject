@@ -56,7 +56,7 @@ def demo(n, block_orientation, rotate, inreverse):
         #Switch1 not push
         else:
           print("Button was not pushed!")
-          GPIO.output(LED, GPIO.LOW)
+          GPIO.output(LED_r, GPIO.LOW)
           mylcd.lcd_display_string("not pushed",2)
           time.sleep(1)
           mylcd.lcd_clear()
